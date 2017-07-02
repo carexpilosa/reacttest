@@ -1,18 +1,21 @@
 'use strict';
 
-import React from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-class Pups extends React.Component {
+class Pups extends Component {
   constructor(props) {
     super(props);
     this.state = {
       farbe: props.farbe,
-      vorigeFarbe: '',
+      vorigeFarbe: props.farbe,
       ausklappert: false,
       text: props.text,
       text2: props.text2
     };
   }
+  
+  
   
   render() {
     var farbe = this.state.farbe;
@@ -48,6 +51,22 @@ class Pups extends React.Component {
     var ausklappert = ! this.state.ausklappert;
     this.setState({ausklappert: ausklappert});
   }
+};
+
+Pups.propTypes = {
+  farbe: PropTypes.string,
+  vorigeFarbe: PropTypes.string,
+  ausklappert: PropTypes.bool,
+  text: PropTypes.string,
+  text2: PropTypes.string
+};
+
+Pups.defaultProps = {
+  farbe: 'red',
+  vorigeFarbe: 'red',
+  ausgeklapper: false,
+  text: 'no text given',
+  text2: 'no text given'
 };
 
 export default Pups;

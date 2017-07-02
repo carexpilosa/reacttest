@@ -4,10 +4,29 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Pups from './components/Pups';
 
+var texte = [
+  { text: 'Der erschte Text',
+    text2: 'Details zu 1',
+    farbe: 'red'
+  },
+  {
+    text: 'Der andere Text',
+    text2: 'Details zu Text Nummer zwo',
+    farbe: 'green'
+  }
+];
+
 ReactDOM.render(
   <div>
-    <Pups farbe={'red'} text={'Der erschte Text'} text2={'Details zu 1'}/>
-    <Pups farbe={'green'} text={'Der andere Text'} text2={'Details zu Text Nummer zwo'}/>
+  {
+    texte.map(function (val, idx) {
+      return (
+        <Pups farbe={val.farbe}
+          text={val.text}
+          text2={val.text2} />
+      );
+    })
+  }
   </div>,
   document.getElementById('app')
 );
