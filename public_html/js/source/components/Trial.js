@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-class Pups extends Component {
+class Trial extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,17 +21,20 @@ class Pups extends Component {
     var farbe = this.state.farbe;
     var text = this.state.text;
     var text2 = this.state.text2;
-    return <h2 className={farbe}
-      onClick={this.do.bind(this)}
-      onMouseOver={this.over.bind(this)}
-      onMouseOut={this.out.bind(this)}
-      >{text} {farbe} usw.
-      {
-        this.state.ausklappert
-          ? <div>{text2}</div>
-          : <span></span>
-      }
-    </h2>;
+    return (
+      <span>
+        <h2 className={farbe}
+          onClick={this.do.bind(this)}
+          onMouseOver={this.over.bind(this)}
+          onMouseOut={this.out.bind(this)}
+          >{text} {farbe} usw.</h2>
+          {
+            this.state.ausklappert
+              ? <div className="details">{text2}</div>
+              : <span></span>
+          }
+      </span>
+    );
   }
   
   over () {
@@ -53,7 +56,7 @@ class Pups extends Component {
   }
 };
 
-Pups.propTypes = {
+Trial.propTypes = {
   farbe: PropTypes.string,
   vorigeFarbe: PropTypes.string,
   ausklappert: PropTypes.bool,
@@ -61,7 +64,7 @@ Pups.propTypes = {
   text2: PropTypes.string
 };
 
-Pups.defaultProps = {
+Trial.defaultProps = {
   farbe: 'red',
   vorigeFarbe: 'red',
   ausgeklapper: false,
@@ -69,4 +72,4 @@ Pups.defaultProps = {
   text2: 'no text given'
 };
 
-export default Pups;
+export default Trial;
