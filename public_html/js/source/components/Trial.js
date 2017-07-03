@@ -15,8 +15,6 @@ class Trial extends Component {
     };
   }
   
-  
-  
   render() {
     var farbe = this.state.farbe;
     var text = this.state.text;
