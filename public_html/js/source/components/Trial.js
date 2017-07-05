@@ -2,6 +2,7 @@
 
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import MyInput from './MyInput';
 
 class Trial extends Component {
   constructor(props) {
@@ -14,13 +15,13 @@ class Trial extends Component {
       text2: props.text2
     };
   }
-  
+
   render() {
     var farbe = this.state.farbe;
     var text = this.state.text;
     var text2 = this.state.text2;
     return (
-      <span>
+      <div>
         <h2 className={farbe}
           onClick={this.do.bind(this)}
           onMouseOver={this.over.bind(this)}
@@ -31,23 +32,24 @@ class Trial extends Component {
               ? <div className="details">{text2}</div>
               : <span></span>
           }
-      </span>
+        <MyInput />
+      </div>
     );
   }
-  
+
   over () {
     this.setState({
       farbe: 'gray',
       vorigeFarbe: this.state.farbe
     });
   }
-  
+
   out () {
     this.setState({
       farbe: this.state.vorigeFarbe
     });
   }
-  
+
   do(e) {
     var ausklappert = ! this.state.ausklappert;
     this.setState({ausklappert: ausklappert});
