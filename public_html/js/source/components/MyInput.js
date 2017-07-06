@@ -9,13 +9,14 @@ class MyInput extends Component {
     this.state = {
       value: this.props.defaultValue
     };
-    this.do = this.do.bind(this);
+    //this.do = this.do.bind(this);
   }
 
   render() {
     return (
       <div>
-        <input type="text" defaultValue={this.props.defaultValue} onChange={this.do} />
+        <input type="text" defaultValue={this.props.defaultValue} onChange={this.do.bind(this)} />
+        Dies steht im input: "{this.state.value}"
       </div>
     );
   }
