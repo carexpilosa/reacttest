@@ -7,7 +7,7 @@ class MyInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.value
+      value: this.props.defaultValue
     };
     this.do = this.do.bind(this);
   }
@@ -15,7 +15,7 @@ class MyInput extends Component {
   render() {
     return (
       <div>
-        <input type="text" value={this.state.value} onChange={this.do} />
+        <input type="text" defaultValue={this.props.defaultValue} onChange={this.do} />
       </div>
     );
   }

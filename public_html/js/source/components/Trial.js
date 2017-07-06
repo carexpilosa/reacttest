@@ -32,7 +32,7 @@ class Trial extends Component {
               ? <div className="details">{text2}</div>
               : <span></span>
           }
-        <MyInput />
+        <MyInput defaultValue="Ein Text, als defaultValue" />
       </div>
     );
   }
